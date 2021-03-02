@@ -1,5 +1,6 @@
 import 'dart:async';
-import 'package:algolia/algolia.dart';
+
+import 'package:algolia_sdk/algolia.dart';
 
 void main() async {
   ///
@@ -151,7 +152,8 @@ void main() async {
 
   // Set Settings
   AlgoliaSettings settingsData = settingsRef;
-  settingsData = settingsData.setReplicas(const ['index_copy_1', 'index_copy_2']);
+  settingsData =
+      settingsData.setReplicas(const ['index_copy_1', 'index_copy_2']);
   AlgoliaTask setSettings = await settingsData.setSettings();
 
   // Checking if has [AlgoliaTask]
