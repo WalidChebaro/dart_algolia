@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:algolia_sdk/algolia.dart';
+import 'package:algolia_sdk/algolia_sdk.dart';
 
 void main() async {
   ///

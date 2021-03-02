@@ -1,6 +1,6 @@
 @Timeout(const Duration(seconds: 60))
 
-import 'package:algolia_sdk/algolia.dart';
+import 'package:algolia_sdk/algolia_sdk.dart';
 import 'package:test/test.dart';
 
 void main() async {
