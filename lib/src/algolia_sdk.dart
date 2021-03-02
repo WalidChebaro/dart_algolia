@@ -1,4 +1,4 @@
-part of algolia;
+part of algolia_sdk;
 
 class Algolia {
   const Algolia.init({

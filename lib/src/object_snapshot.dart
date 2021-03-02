@@ -1,4 +1,4 @@
-part of algolia;
+part of algolia_sdk;
 
 // Implementation & bug solved by https://github.com/franvera
 // - highlightResult [Bug] (commit ref: 0d76d24fe8aa347a0933920afe5ded43bdcbd68b)

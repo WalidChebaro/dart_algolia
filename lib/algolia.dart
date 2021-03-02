@@ -1,4 +1,4 @@
-library algolia;
+library algolia_sdk;
 
 import 'dart:async';
 import 'dart:convert';
@@ -6,7 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:http/http.dart';
 import 'package:uuid/uuid.dart';
 
-part 'src/algolia.dart';
+part 'src/algolia_sdk.dart';
 
 part 'src/index_reference.dart';
 part 'src/index_settings.dart';

@@ -1,4 +1,4 @@
-part of algolia;
+part of algolia_sdk;
 
 /// Scopes of the data to copy when copying an index.
 /// When copying, you may specify optional scopes to the operation. Doing

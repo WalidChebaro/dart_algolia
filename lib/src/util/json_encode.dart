@@ -1,4 +1,4 @@
-part of algolia;
+part of algolia_sdk;
 
 dynamic jsonEncodeHelper(dynamic item) {
   if (item is DateTime) {

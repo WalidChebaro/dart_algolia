@@ -1,4 +1,4 @@
-part of algolia;
+part of algolia_sdk;
 
 class AlgoliaObjectReference {
   AlgoliaObjectReference._(this.algolia, String index, String objectId)

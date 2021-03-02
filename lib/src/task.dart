@@ -1,4 +1,4 @@
-part of algolia;
+part of algolia_sdk;
 
 class AlgoliaTask {
   AlgoliaTask._(this.algolia, String index, Map<String, dynamic> data)

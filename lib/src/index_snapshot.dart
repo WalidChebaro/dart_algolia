@@ -1,4 +1,4 @@
-part of algolia;
+part of algolia_sdk;
 
 class AlgoliaIndexesSnapshot {
   AlgoliaIndexesSnapshot._(this.algolia, Map<String, dynamic> map)
