@@ -12,9 +12,9 @@ enum AlgoliaSortFacetValuesBy {
 ///
 class AlgoliaQuery {
   AlgoliaQuery._(
-      {@required this.algolia,
-      @required String index,
-      Map<String, dynamic> parameters})
+      {required this.algolia,
+      required String index,
+      Map<String, dynamic>? parameters})
       : _index = index,
         _parameters = parameters ??
             Map<String, dynamic>.unmodifiable(<String, dynamic>{
@@ -25,9 +25,7 @@ class AlgoliaQuery {
               'numericFilters':
                   List<List<String>>.unmodifiable(<List<String>>[]),
               'tagFilters': List<List<String>>.unmodifiable(<List<String>>[]),
-            }),
-        assert(algolia != null),
-        assert(index != null);
+            });
   final Algolia algolia;
   final String _index;
   final Map<String, dynamic> _parameters;
@@ -90,7 +88,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/query/)
   ///
   AlgoliaQuery search(String value) {
-    assert(value != null);
     assert(!_parameters.containsKey('search'));
     return _copyWithParameters(<String, dynamic>{'query': value});
   }
@@ -117,7 +114,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/attributesToRetrieve/)
   ///
   AlgoliaQuery setAttributesToRetrieve(List<String> value) {
-    assert(value != null);
     assert(!_parameters.containsKey('attributesToRetrieve'));
     return _copyWithParameters(
         <String, dynamic>{'attributesToRetrieve': value});
@@ -138,7 +134,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/restrictSearchableAttributes/)
   ///
   AlgoliaQuery setRestrictSearchableAttributes(List<String> value) {
-    assert(value != null);
     assert(!_parameters.containsKey('restrictSearchableAttributes'));
     return _copyWithParameters(
         <String, dynamic>{'restrictSearchableAttributes': value});
@@ -237,7 +232,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/filters/)
   ///
   AlgoliaQuery setFilters(String value) {
-    assert(value != null);
     assert(!_parameters.containsKey('filters'));
     return _copyWithParameters(<String, dynamic>{'filters': value});
   }
@@ -424,7 +418,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/facets/)
   ///
   AlgoliaQuery setFacets(List<String> value) {
-    assert(value != null);
     assert(!_parameters.containsKey('facets'));
     return _copyWithParameters(<String, dynamic>{'facets': value});
   }
@@ -445,7 +438,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/maxValuesPerFacet/)
   ///
   AlgoliaQuery setMaxValuesPerFacet(int value) {
-    assert(value != null);
     assert(!_parameters.containsKey('maxValuesPerFacet'));
     return _copyWithParameters(<String, dynamic>{'maxValuesPerFacet': value});
   }
@@ -472,7 +464,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/facetingAfterDistinct/)
   ///
   AlgoliaQuery setFacetingAfterDistinct({bool enable = true}) {
-    assert(enable != null);
     assert(!_parameters.containsKey('facetingAfterDistinct'));
     return _copyWithParameters(
         <String, dynamic>{'facetingAfterDistinct': enable});
@@ -503,7 +494,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/sortFacetValuesBy/)
   ///
   AlgoliaQuery setSortFacetValuesBy(AlgoliaSortFacetValuesBy value) {
-    assert(value != null);
     assert(!_parameters.containsKey('sortFacetValuesBy'));
     return _copyWithParameters(<String, dynamic>{
       'sortFacetValuesBy':
@@ -532,7 +522,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/attributesToHighlight/)
   ///
   AlgoliaQuery setAttributesToHighlight(List<String> value) {
-    assert(value != null);
     assert(!_parameters.containsKey('attributesToHighlight'));
     return _copyWithParameters(
         <String, dynamic>{'attributesToHighlight': value});
@@ -546,7 +535,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/attributesToSnippet/)
   ///
   AlgoliaQuery setAttributesToSnippet(List<String> value) {
-    assert(value != null);
     assert(!_parameters.containsKey('attributesToSnippet'));
     return _copyWithParameters(<String, dynamic>{'attributesToSnippet': value});
   }
@@ -559,7 +547,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/attributesToSnippet/)
   ///
   AlgoliaQuery setHighlightPreTag(String value) {
-    assert(value != null);
     assert(!_parameters.containsKey('highlightPreTag'));
     return _copyWithParameters(<String, dynamic>{'highlightPreTag': value});
   }
@@ -572,7 +559,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/attributesToSnippet/)
   ///
   AlgoliaQuery setHighlightPostTag(String value) {
-    assert(value != null);
     assert(!_parameters.containsKey('highlightPostTag'));
     return _copyWithParameters(<String, dynamic>{'highlightPostTag': value});
   }
@@ -585,7 +571,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/snippetEllipsisText/)
   ///
   AlgoliaQuery setSnippetEllipsisText(String value) {
-    assert(value != null);
     assert(!_parameters.containsKey('snippetEllipsisText'));
     return _copyWithParameters(<String, dynamic>{'snippetEllipsisText': value});
   }
@@ -598,7 +583,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/restrictHighlightAndSnippetArrays/)
   ///
   AlgoliaQuery setRestrictHighlightAndSnippetArrays({bool enable = true}) {
-    assert(enable != null);
     assert(!_parameters.containsKey('restrictHighlightAndSnippetArrays'));
     return _copyWithParameters(
         <String, dynamic>{'restrictHighlightAndSnippetArrays': enable});
@@ -612,7 +596,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/page/)
   ///
   AlgoliaQuery setPage(int value) {
-    assert(value != null);
     assert(!_parameters.containsKey('page'));
     return _copyWithParameters(<String, dynamic>{'page': value});
   }
@@ -625,7 +608,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/hitsPerPage/)
   ///
   AlgoliaQuery setHitsPerPage(int value) {
-    assert(value != null);
     assert(!_parameters.containsKey('hitsPerPage'));
     return _copyWithParameters(<String, dynamic>{'hitsPerPage': value});
   }
@@ -638,7 +620,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/offset/)
   ///
   AlgoliaQuery setOffset(int value) {
-    assert(value != null);
     assert(!_parameters.containsKey('offset'));
     return _copyWithParameters(<String, dynamic>{'offset': value});
   }
@@ -651,7 +632,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/length/)
   ///
   AlgoliaQuery setLength(int value) {
-    assert(value != null);
     assert(!_parameters.containsKey('length'));
     return _copyWithParameters(<String, dynamic>{'length': value});
   }
@@ -664,7 +644,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/minWordSizefor1Typo/)
   ///
   AlgoliaQuery setMinWordSizeFor1Typo(int value) {
-    assert(value != null);
     assert(!_parameters.containsKey('minWordSizefor1Typo'));
     return _copyWithParameters(<String, dynamic>{'minWordSizefor1Typo': value});
   }
@@ -677,7 +656,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/minWordSizefor2Typos/)
   ///
   AlgoliaQuery setMinWordSizeFor2Typos(int value) {
-    assert(value != null);
     assert(!_parameters.containsKey('minWordSizefor2Typos'));
     return _copyWithParameters(
         <String, dynamic>{'minWordSizefor2Typos': value});
@@ -708,7 +686,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/allowTyposOnNumericTokens/)
   ///
   AlgoliaQuery setAllowTyposOnNumericTokens(bool value) {
-    assert(value != null);
     assert(!_parameters.containsKey('allowTyposOnNumericTokens'));
     return _copyWithParameters(
         <String, dynamic>{'allowTyposOnNumericTokens': value});
@@ -723,7 +700,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/disableTypoToleranceOnAttributes/)
   ///
   AlgoliaQuery setDisableTypoToleranceOnAttributes(List<String> value) {
-    assert(value != null);
     assert(!_parameters.containsKey('disableTypoToleranceOnAttributes'));
     return _copyWithParameters(
         <String, dynamic>{'disableTypoToleranceOnAttributes': value});
@@ -738,7 +714,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/aroundLatLng/)
   ///
   AlgoliaQuery setAroundLatLng(String value) {
-    assert(value != null);
     assert(!_parameters.containsKey('aroundLatLng'));
     return _copyWithParameters(<String, dynamic>{'aroundLatLng': value});
   }
@@ -752,10 +727,8 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/aroundLatLngViaIP/)
   ///
   AlgoliaQuery setAroundLatLngViaIP(bool value) {
-    assert(value != null);
     assert(!_parameters.containsKey('aroundLatLngViaIP'));
-    return _copyWithParameters(
-        <String, dynamic>{'aroundLatLngViaIP': value ?? false});
+    return _copyWithParameters(<String, dynamic>{'aroundLatLngViaIP': value});
   }
 
   ///
@@ -833,7 +806,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/aroundPrecision/)
   ///
   AlgoliaQuery setAroundPrecision(int value) {
-    assert(value != null);
     assert(!_parameters.containsKey('aroundPrecision'));
     return _copyWithParameters(<String, dynamic>{'aroundPrecision': value});
   }
@@ -861,7 +833,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/minimumAroundRadius/)
   ///
   AlgoliaQuery setMinimumAroundRadius(int value) {
-    assert(value != null);
     assert(!_parameters.containsKey('minimumAroundRadius'));
     return _copyWithParameters(<String, dynamic>{'minimumAroundRadius': value});
   }
@@ -890,7 +861,7 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/insideBoundingBox/)
   ///
   AlgoliaQuery setInsideBoundingBox(List<BoundingBox> value) {
-    assert(value != null && value.isNotEmpty, 'value can not be empty');
+    assert(value.isNotEmpty, 'value can not be empty');
     assert(!_parameters.containsKey('insideBoundingBox'));
     List<List<num>> list =
         value.map((v) => [v.p1Lat, v.p1Lng, v.p2Lat, v.p2Lng]).toList();
@@ -929,7 +900,7 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/insidePolygon/)
   ///
   AlgoliaQuery setInsidePolygon(List<BoundingPolygonBox> value) {
-    assert(value != null && value.isNotEmpty, 'value can not be empty');
+    assert(value.isNotEmpty, 'value can not be empty');
     assert(!_parameters.containsKey('insidePolygon'));
     List<List<num>> list = value
         .map((v) => [v.p1Lat, v.p1Lng, v.p2Lat, v.p2Lng, v.p3Lat, v.p3Lng])
@@ -946,7 +917,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/attributeForDistinct/)
   ///
   AlgoliaQuery setAttributeForDistinct(String value) {
-    assert(value != null, 'value can not be empty');
     assert(!_parameters.containsKey('attributeForDistinct'));
     return _copyWithParameters(
         <String, dynamic>{'attributeForDistinct': value});
@@ -977,7 +947,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/getRankingInfo/)
   ///
   AlgoliaQuery setGetRankingInfo({bool enabled = true}) {
-    assert(enabled != null, 'value can not be empty');
     assert(!_parameters.containsKey('getRankingInfo'));
     return _copyWithParameters(<String, dynamic>{'getRankingInfo': enabled});
   }
@@ -994,7 +963,6 @@ class AlgoliaQuery {
   /// Source: [Learn more](https://www.algolia.com/doc/api-reference/api-parameters/clickAnalytics/)
   ///
   AlgoliaQuery setClickAnalytics({bool enabled = false}) {
-    assert(enabled != null, 'value can not be empty');
     assert(!_parameters.containsKey('clickAnalytics'));
     return _copyWithParameters(<String, dynamic>{'clickAnalytics': enabled});
   }
@@ -1002,10 +970,10 @@ class AlgoliaQuery {
 
 class BoundingBox {
   BoundingBox({
-    @required this.p1Lat,
-    @required this.p1Lng,
-    @required this.p2Lat,
-    @required this.p2Lng,
+    required this.p1Lat,
+    required this.p1Lng,
+    required this.p2Lat,
+    required this.p2Lng,
   });
   num p1Lat;
   num p1Lng;
@@ -1015,12 +983,12 @@ class BoundingBox {
 
 class BoundingPolygonBox {
   BoundingPolygonBox({
-    @required this.p1Lat,
-    @required this.p1Lng,
-    @required this.p2Lat,
-    @required this.p2Lng,
-    @required this.p3Lat,
-    @required this.p3Lng,
+    required this.p1Lat,
+    required this.p1Lng,
+    required this.p2Lat,
+    required this.p2Lng,
+    required this.p3Lat,
+    required this.p3Lng,
   });
   num p1Lat;
   num p1Lng;

@@ -39,7 +39,7 @@ class AlgoliaBatch {
   AlgoliaBatch._(
     this.algolia,
     String index, {
-    List<AlgoliaBatchRequest> actions,
+    List<AlgoliaBatchRequest>? actions,
   })  : _actions = actions ?? <AlgoliaBatchRequest>[],
         _index = index;
   Algolia algolia;
@@ -125,7 +125,7 @@ class AlgoliaBatch {
   ///
   void partialUpdateObject(Map<String, dynamic> data) {
     if (!_committed) {
-      assert(_index != null && _index != '*' && _index != '',
+      assert(_index != '*' && _index != '',
           'IndexName is required, but it has `*` multiple flag or `null`.');
       _actions
           .add(AlgoliaBatchRequest(action: 'partialUpdateObject', body: data));
@@ -145,7 +145,7 @@ class AlgoliaBatch {
   ///
   void partialUpdateObjectNoCreate(Map<String, dynamic> data) {
     if (!_committed) {
-      assert(_index != null && _index != '*' && _index != '',
+      assert(_index != '*' && _index != '',
           'IndexName is required, but it has `*` multiple flag or `null`.');
       assert(data['objectID'] != null,
           'In batch action [partialUpdateObjectNoCreate] objectID field is required.');
@@ -207,8 +207,8 @@ class AlgoliaBatch {
 /// Batch list element wrapper class [AlgoliaBatchRequest] for commit.
 class AlgoliaBatchRequest {
   AlgoliaBatchRequest({
-    @required this.action,
-    @required this.body,
+    required this.action,
+    required this.body,
   });
   String action;
   Map<String, dynamic> body;

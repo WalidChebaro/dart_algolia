@@ -1,14 +1,13 @@
 part of algolia_sdk;
 
 class AlgoliaTask {
-  AlgoliaTask._(this.algolia, String index, Map<String, dynamic> data)
+  AlgoliaTask._(this.algolia, String? index, Map<String, dynamic> data)
       : _index = index,
         _data = data,
-        taskID = data['taskID'],
-        assert(algolia != null);
+        taskID = data['taskID'];
   final Algolia algolia;
-  final String _index;
-  final int taskID;
+  final String? _index;
+  final int? taskID;
   final Map<String, dynamic> _data;
 
   Map<String, dynamic> get data {

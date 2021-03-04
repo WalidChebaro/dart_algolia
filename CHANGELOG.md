@@ -1,3 +1,8 @@
+## [0.1.12] - HTTP 0.13.0 uuid 3.0.1 compatibility upgrade and null safety transition.
+
+## [0.1.11] - HTTP 0.12.0 uuid 2.0.2 compatibility upgrade.
+## [0.1.10] - HTTP 0.12.0 uuid 3.0.0 compatibility upgrade.
+## [0.1.9] - uuid 3.0.0 compatibility upgrade.
 ## [0.1.8] - HTTP 0.13.0 compatibility upgrade.
 
 ## [0.1.7] - Bug fixes and added a new property.

@@ -2,21 +2,17 @@ part of algolia_sdk;
 
 class Algolia {
   const Algolia.init({
-    @required String applicationId,
-    @required String apiKey,
+    required String applicationId,
+    required String apiKey,
     this.extraHeaders = const {},
-  })  : assert(applicationId != null, 'Application ID is required.'),
-        assert(apiKey != null, 'API Key is required.'),
-        applicationId = applicationId,
+  })  : applicationId = applicationId,
         _apiKey = apiKey;
 
   const Algolia._({
-    @required String applicationId,
-    @required String apiKey,
+    required String applicationId,
+    required String apiKey,
     this.extraHeaders = const {},
-  })  : assert(applicationId != null, 'Application ID is required.'),
-        assert(apiKey != null, 'API Key is required.'),
-        applicationId = applicationId,
+  })  : applicationId = applicationId,
         _apiKey = apiKey;
 
   final String applicationId;
@@ -52,7 +48,6 @@ class Algolia {
   }
 
   AlgoliaIndexReference index(String index) {
-    assert(index != null);
     return AlgoliaIndexReference._(this, index);
   }
 
@@ -71,7 +66,8 @@ class Algolia {
       print(body);
       return AlgoliaIndexesSnapshot._(this, body);
     } catch (err) {
-      return err;
+      Map<String, dynamic> body = json.decode(err.toString());
+      return AlgoliaIndexesSnapshot._(this, body);
     }
   }
 }

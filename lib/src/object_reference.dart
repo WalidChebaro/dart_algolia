@@ -1,17 +1,16 @@
 part of algolia_sdk;
 
 class AlgoliaObjectReference {
-  AlgoliaObjectReference._(this.algolia, String index, String objectId)
+  AlgoliaObjectReference._(this.algolia, String? index, String? objectId)
       : _index = index,
-        _objectId = objectId,
-        assert(algolia != null);
+        _objectId = objectId;
 
   final Algolia algolia;
-  final String _index;
-  final String _objectId;
+  final String? _index;
+  final String? _objectId;
 
-  String get index => _index;
-  String get objectID => _objectId;
+  String? get index => _index;
+  String? get objectID => _objectId;
 
   /// Get the object referred to by this [AlgoliaObjectReference].
   ///
@@ -27,7 +26,8 @@ class AlgoliaObjectReference {
       Map<String, dynamic> body = json.decode(response.body);
       return AlgoliaObjectSnapshot.fromMap(algolia, _index, body);
     } catch (err) {
-      return err;
+      Map<String, dynamic> body = json.decode(err.toString());
+      return AlgoliaObjectSnapshot.fromMap(algolia, _index, body);
     }
   }
 
@@ -51,7 +51,8 @@ class AlgoliaObjectReference {
       Map<String, dynamic> body = json.decode(response.body);
       return AlgoliaTask._(algolia, _index, body);
     } catch (err) {
-      return err;
+      Map<String, dynamic> body = json.decode(err.toString());
+      return AlgoliaTask._(algolia, _index, body);
     }
   }
 
@@ -81,7 +82,8 @@ class AlgoliaObjectReference {
       Map<String, dynamic> body = json.decode(response.body);
       return AlgoliaTask._(algolia, _index, body);
     } catch (err) {
-      return err;
+      Map<String, dynamic> body = json.decode(err.toString());
+      return AlgoliaTask._(algolia, _index, body);
     }
   }
 
@@ -123,7 +125,8 @@ class AlgoliaObjectReference {
       Map<String, dynamic> body = json.decode(response.body);
       return AlgoliaTask._(algolia, _index, body);
     } catch (err) {
-      return err;
+      Map<String, dynamic> body = json.decode(err.toString());
+      return AlgoliaTask._(algolia, _index, body);
     }
   }
 
@@ -145,7 +148,8 @@ class AlgoliaObjectReference {
       Map<String, dynamic> body = json.decode(response.body);
       return AlgoliaTask._(algolia, _index, body);
     } catch (err) {
-      return err;
+      Map<String, dynamic> body = json.decode(err.toString());
+      return AlgoliaTask._(algolia, _index, body);
     }
   }
 }

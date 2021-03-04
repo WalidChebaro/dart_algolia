@@ -14,20 +14,20 @@ class AlgoliaQuerySnapshot {
     this.query,
   });
 
-  List<AlgoliaObjectSnapshot> hits;
-  Algolia algolia;
-  bool empty;
-  int nbHits;
-  int page;
-  int nbPages;
-  int hitsPerPage;
-  int processingTimeMS;
-  bool exhaustiveNbHits;
-  String query;
-  String params;
-  String index;
-  Map<String, dynamic> facets;
-  Map<String, dynamic> facetsStats;
+  List<AlgoliaObjectSnapshot>? hits;
+  Algolia? algolia;
+  bool? empty;
+  int? nbHits;
+  int? page;
+  int? nbPages;
+  int? hitsPerPage;
+  int? processingTimeMS;
+  bool? exhaustiveNbHits;
+  String? query;
+  String? params;
+  String? index;
+  Map<String, dynamic>? facets;
+  Map<String, dynamic>? facetsStats;
 
   AlgoliaQuerySnapshot.fromMap(algolia, index, Map<String, dynamic> map) {
     this.algolia = algolia;
@@ -40,7 +40,7 @@ class AlgoliaQuerySnapshot {
         .toList()
         .cast<AlgoliaObjectSnapshot>();
     this.hits = hitsReMap;
-    this.empty = this.hits.isEmpty;
+    this.empty = this.hits!.isEmpty;
     this.nbHits = map['nbHits'];
     this.page = map['page'];
     this.nbPages = map['nbPages'];

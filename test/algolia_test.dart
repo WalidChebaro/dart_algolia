@@ -1,4 +1,4 @@
-@Timeout(const Duration(seconds: 60))
+import 'dart:async';
 
 import 'package:algolia_sdk/algolia_sdk.dart';
 import 'package:test/test.dart';
@@ -15,7 +15,7 @@ void main() async {
       taskReplace,
       taskClearIndex,
       taskDeleteIndex;
-  AlgoliaObjectSnapshot addedObject;
+  late AlgoliaObjectSnapshot addedObject;
 
   /// Storage for returned Object IDs
   final List<String> ids = [];
@@ -46,6 +46,8 @@ void main() async {
   /// 2. Perform Get Object to existing Index.
   ///
   test("2. Perform Get Object to existing Index.", () async {
+    Map<String, dynamic> addData = {};
+    taskAdded = await algolia.instance.index('contacts').addObject(addData);
     addedObject = await algolia.instance
         .index('contacts')
         .object(taskAdded.data['objectID'].toString())
@@ -62,7 +64,7 @@ void main() async {
   ///
   test("3. Perform Updating Object to existing Index.", () async {
     Map<String, dynamic> updateData =
-        Map<String, dynamic>.from(addedObject.data);
+        Map<String, dynamic>.from(addedObject.data!);
     updateData['contact'] = '+1 609 567890';
     updateData['modifiedAt'] = DateTime.now();
     taskUpdated = await algolia.instance
@@ -191,8 +193,10 @@ void main() async {
   /// 10. Get Settings of 'contacts' index
   ///
   test("10. Get Settings of 'contacts' index", () async {
-    Map<String, dynamic> settings =
-        await algolia.instance.index('contacts').settings.getSettings();
+    Map<String, dynamic> settings = await (algolia.instance
+        .index('contacts')
+        .settings
+        .getSettings() as FutureOr<Map<String, dynamic>>);
 
     // Checking if has [Map<String, dynamic>]
     expect(settings.isEmpty, false);
